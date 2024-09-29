@@ -4,23 +4,38 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint --ext .js,.ts,.jsx,.tsx --fix --quiet ./packages",
-    "prepare": "husky"
+    "lint": "lint-staged",
+    "prepare": "husky",
+    "build:dev": "rollup --bundleConfigAsCjs --config scripts/rollup/react.config.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "lint-staged": {
+    "*.{js,ts,jsx,tsx}": [
+      "eslint --cache --fix"
+    ]
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Fanceir",
+  "license": "MIT",
   "devDependencies": {
-    "@commitlint/cli": "^19.3.0",
-    "@commitlint/config-conventional": "^19.2.2",
-    "@typescript-eslint/eslint-plugin": "^7.16.1",
-    "@typescript-eslint/parser": "^7.16.1",
+    "@commitlint/cli": "^19.5.0",
+    "@commitlint/config-conventional": "^19.5.0",
+    "@rollup/plugin-commonjs": "^28.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
     "commitlint": "^19.3.0",
+    "eslint": "^9.11.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "husky": "^9.1.0",
+    "globals": "^15.9.0",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
     "rollup": "^4.22.4",
+    "rollup-plugin-generate-package-json": "^3.2.0",
+    "rollup-plugin-typescript2": "^0.36.0",
     "vite": "^5.4.8"
   }
 }
